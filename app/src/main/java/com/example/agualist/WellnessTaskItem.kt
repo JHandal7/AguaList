@@ -48,14 +48,14 @@ fun WellnessTaskItem(
 // to make the function stateless.
 
 @Composable
-fun WellnessTaskItem(taskName: String, modifier: Modifier = Modifier) {
+fun WellnessTaskItem(taskName: String, modifier: Modifier = Modifier,onClose: () -> Unit) {
     var checkedState by remember { mutableStateOf(false) }
 
     WellnessTaskItem(
         taskName = taskName,
         checked = checkedState,
         onCheckedChange = { newValue -> checkedState = newValue },
-        onClose = {}, // we will implement this later!
+        onClose = onClose, // we will implement this later!
         modifier = modifier,
     )
 }
@@ -63,3 +63,4 @@ fun WellnessTaskItem(taskName: String, modifier: Modifier = Modifier) {
 // and passes it to the stateless method of the same name
 
 
+// WellnessTaskItem(taskName = task.label, onClose = { onCloseTask(task) })
